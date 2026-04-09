@@ -12,10 +12,14 @@
   --color-light-white: #e6e6f1;
   --color-border-grey: #02066f33;
   --color-sidebar-links-border: #f9f4ff;
+  --color-field: #ccdbe9;
+  --color-field-shadow: #004b8f;
+  --color-green: #148e00;
 
   /* font size */
   --text-custom-base: 18px;
   --text-custom-2xl: 28px;
+  --text-custom-3xl: 32px;
   --text-custom-4xl: 40px;
 
   /* line height */
@@ -45,4 +49,15 @@
 ::selection {
   background-color: var(--color-blue);
   color: var(--color-white);
+}
+
+th {
+  padding: 16px 24px;
+  letter-spacing: 5%;
+  line-height: 16px;
+  font-weight: 600;
+}
+td {
+  padding: 16px 24px;
+  line-height: var(--leading-160);
 }

@@ -3,6 +3,7 @@ import React from "react";
 import Heading from "../common/Heading";
 import { STUDENT_DATA_LIST } from "@/utils/helper";
 import Icons from "../common/Icons";
+import Link from "next/link";
 
 const Content = () => {
   const IsValidUser =
@@ -42,75 +43,77 @@ const Content = () => {
 
       <Heading text={"My Students"} className={"text-xl sm:text-custom-2xl"} />
 
-      <div className="w-full flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6">
+      <div className="w-full flex flex-col sm:flex-row max-[1800px]:flex-wrap gap-4 sm:gap-6">
         {STUDENT_DATA_LIST.map((item, index) => (
-          <div
+          <Link
+            href={`/dashboard/academic-performance?tab=${item.name.replaceAll(" ", "-").toLowerCase()}`}
             key={index}
-            className="border group border-blue-main/20 shadow-[0px_0px_30.4px_0px_rgba(3,77,144,0.14)] flex flex-col sm:flex-row gap-4 items-start p-4 sm:p-5 rounded-2xl w-full sm:w-auto sm:min-w-124 h-auto sm:h-64.5"
           >
-            <div className="shrink-0 h-40 w-full sm:h-full sm:w-auto sm:min-h-54.5">
-              <Image
-                src={item.image}
-                height={218}
-                width={226}
-                alt={item.name}
-                className="object-cover object-center rounded-[10px] h-full w-full sm:h-full sm:w-56 group-hover:scale-103 hover:scale-[95%] duration-200 ease-in"
-              />
+            <div className="border group border-blue-main/20 shadow-[0px_0px_30.4px_0px_rgba(3,77,144,0.14)] flex flex-col sm:flex-row gap-4 items-start p-4 sm:p-5 rounded-2xl w-full sm:w-auto sm:min-w-124 h-auto sm:h-64.5">
+              <div className="shrink-0 h-40 w-full sm:h-full sm:w-auto sm:min-h-54.5">
+                <Image
+                  src={item.image}
+                  height={218}
+                  width={226}
+                  alt={item.name}
+                  className="object-cover object-center rounded-[10px] h-full w-full sm:h-full sm:w-56 group-hover:scale-103 hover:scale-[95%] duration-200 ease-in"
+                />
+              </div>
+
+              <div className="flex flex-col gap-3 sm:gap-5 flex-1 min-w-0">
+                <div className="flex gap-3 items-center">
+                  <span className="h-7 md:h-9 w-7 md:w-9 sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
+                    <Icons
+                      icon={"student"}
+                      className={"h-5 w-5 md:h-full md:w-full"}
+                    />
+                  </span>
+                  <div className="flex flex-col gap-0.75 min-w-0">
+                    <span className="text-xs sm:text-sm leading-160 text-black">
+                      Student Name:
+                    </span>
+                    <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
+                      {item.name}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 items-center">
+                  <span className="h-7 md:h-9 w-7 md:w-9 sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
+                    <Icons
+                      icon={"class"}
+                      className={"h-5 w-5 md:h-full md:w-full"}
+                    />
+                  </span>
+                  <div className="flex flex-col gap-0.75 min-w-0">
+                    <span className="text-xs sm:text-sm leading-160 text-black">
+                      Class:
+                    </span>
+                    <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
+                      {item.class}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 items-center">
+                  <span className="h-7 md:h-9 w-7 md:w-9  sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
+                    <Icons
+                      icon={"phone_No"}
+                      className={"h-5 w-5 md:h-full md:w-full"}
+                    />
+                  </span>
+                  <div className="flex flex-col gap-0.75 min-w-0">
+                    <span className="text-xs sm:text-sm leading-160 text-black">
+                      Phone No:
+                    </span>
+                    <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
+                      {item.phone_no}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col gap-3 sm:gap-5 flex-1 min-w-0">
-              <div className="flex gap-3 items-center">
-                <span className="h-7 md:h-9 w-7 md:w-9 sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
-                  <Icons
-                    icon={"student"}
-                    className={"h-5 w-5 md:h-full md:w-full"}
-                  />
-                </span>
-                <div className="flex flex-col gap-0.75 min-w-0">
-                  <span className="text-xs sm:text-sm leading-160 text-black">
-                    Student Name:
-                  </span>
-                  <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
-                    {item.name}
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <span className="h-7 md:h-9 w-7 md:w-9 sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
-                  <Icons
-                    icon={"class"}
-                    className={"h-5 w-5 md:h-full md:w-full"}
-                  />
-                </span>
-                <div className="flex flex-col gap-0.75 min-w-0">
-                  <span className="text-xs sm:text-sm leading-160 text-black">
-                    Class:
-                  </span>
-                  <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
-                    {item.class}
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <span className="h-7 md:h-9 w-7 md:w-9  sm:h-12 sm:w-12 rounded-full bg-[#7D80E01A] flex items-center justify-center shrink-0">
-                  <Icons
-                    icon={"phone_No"}
-                    className={"h-5 w-5 md:h-full md:w-full"}
-                  />
-                </span>
-                <div className="flex flex-col gap-0.75 min-w-0">
-                  <span className="text-xs sm:text-sm leading-160 text-black">
-                    Phone No:
-                  </span>
-                  <span className="font-medium leading-160 text-black text-sm sm:text-base truncate">
-                    {item.phone_no}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

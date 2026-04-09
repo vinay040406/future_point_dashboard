@@ -91,6 +91,7 @@ const Notification = () => {
     const filtered = filterNotifications(NOTIFICATION_DATA_LIST, value);
     setNotifications(filtered);
   };
+  console.log(selectedPeriod);
 
   return (
     <div className="w-full flex flex-col gap-5 sm:gap-7.5 mt-4 md:mt-0">
@@ -115,9 +116,9 @@ const Notification = () => {
             onChange={handleChange}
             name="period"
             id="period"
-            className="border border-blue px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full cursor-pointer leading-160 text-blue outline-none bg-white appearance-none pr-6 md:pr-3 w-full sm:w-auto text-sm sm:text-base
+            className={`border border-blue px-4 sm:px-6  py-2.5 sm:py-3.5 rounded-full cursor-pointer leading-160 text-blue outline-none bg-white appearance-none sm:pr-12 w-full sm:w-auto text-sm sm:text-base
             hover:bg-blue hover:text-white duration-300 ease-in
-          hover:border-transparent"
+          hover:border-transparent`}
           >
             <option value="today">Today</option>
             <option value="week">This Week</option>
@@ -130,7 +131,7 @@ const Notification = () => {
             pathClass={
               "stroke-blue group-hover:fill-white group-hover:stroke-white duration-300 ease-in"
             }
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 pointer-events-none"
+            className="absolute right-0 md:right-6 top-1/2 -translate-y-1/2 pointer-events-none"
           />
         </div>
       </div>
