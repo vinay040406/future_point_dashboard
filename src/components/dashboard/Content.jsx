@@ -41,13 +41,14 @@ const Content = () => {
         </div>
       </div>
 
-      <Heading text={"My Students"} className={"text-xl sm:text-custom-2xl"} />
+      <Heading text={"My Toddlers"} className={"text-xl sm:text-custom-2xl"} />
 
       <div className="w-full flex flex-col sm:flex-row max-[1800px]:flex-wrap gap-4 sm:gap-6">
         {STUDENT_DATA_LIST.map((item, index) => (
           <Link
             href={`/dashboard/academic-performance?tab=${item.name.replaceAll(" ", "-").toLowerCase()}`}
             key={index}
+            className="w-auto max-[1404px]:w-full "
           >
             <div className="border group border-blue-main/20 shadow-[0px_0px_30.4px_0px_rgba(3,77,144,0.14)] flex flex-col sm:flex-row gap-4 items-start p-4 sm:p-5 rounded-2xl w-full sm:w-auto sm:min-w-124 h-auto sm:h-64.5">
               <div className="shrink-0 h-40 w-full sm:h-full sm:w-auto sm:min-h-54.5">

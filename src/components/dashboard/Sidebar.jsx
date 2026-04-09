@@ -30,7 +30,14 @@ const Sidebar = () => {
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-1 border-b border-b-sidebar-links-border pb-5">
           {SIDEBAR_DATA.slice(0, 3).map((item, index) => (
-            <Link key={index} href={item.href}>
+            <Link
+              key={index}
+              href={
+                item.href === "/dashboard/academic-performance"
+                  ? "/dashboard/dash"
+                  : item.href
+              }
+            >
               <div
                 className={`flex gap-3 px-2 md:px-4 py-1.5 md:py-3 rounded-xl md:rounded-full group items-center cursor-pointer ${tab === `${item.href.split("/").pop()}` && "bg-blue text-white"} hover:bg-blue hover:text-white duration-200 ease-in `}
               >

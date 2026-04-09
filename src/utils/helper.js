@@ -5,6 +5,11 @@ import {
   SETTINGS,
 } from "./constant";
 
+const IsValidUser =
+  typeof window !== "undefined"
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+
 export const SIDEBAR_DATA = [
   { icon: "dashboard", text: "Dashboard", href: DASHBOARD },
   {
@@ -24,7 +29,7 @@ export const STUDENT_DATA_LIST = [
     class: "2nd",
     phone_no: "+91 8986527831",
 
-    father_name: "Rajpal Singh",
+    father_name: IsValidUser.name,
     mother_name: "Sujata Kumari",
     dob: "06/07/2009",
     email: "rohanduhan@gmail.com",
@@ -109,8 +114,8 @@ export const STUDENT_DATA_LIST = [
     class: "3rd",
     phone_no: "+91 8986527831",
 
-    father_name: "Ramesh Kumar",
-    mother_name: "Sunita Devi",
+    father_name: IsValidUser.name,
+    mother_name: "Sujata Kumari",
     dob: "12/09/2008",
     email: "mohanduhan@gmail.com",
     address: "Sector 14, Hisar - 125001",
@@ -173,8 +178,8 @@ export const STUDENT_DATA_LIST = [
     class: "6th",
     phone_no: "+91 8986527831",
 
-    father_name: "Mahesh Kumar",
-    mother_name: "Kavita Devi",
+    father_name: IsValidUser.name,
+    mother_name: "Sujata Kumari",
     dob: "03/03/2006",
     email: "sohanduhan@gmail.com",
     address: "Model Town, Hisar - 125005",
